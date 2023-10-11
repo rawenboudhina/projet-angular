@@ -1,17 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Produit } from '../model/produit.model';
+import { ProduitService } from '../service/produit.service';
 
 @Component({
   selector: 'app-produits',
-  templateUrl: './produits.component.html',
+  templateUrl: './produits.component.html'
 })
 export class ProduitsComponent implements OnInit {
-  produits: string[] = []; //un tableau de chînes de caractères
-  constructor() {
-    this.produits = ["PC Asus", "Imprimante Epson", "Tablette Samsung"];
-  }
+
+    produits? : Produit[]; //un tableau de produits
+
+  constructor(private produitService: ProduitService) {
+   //this.produits=[];
+     }
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+    this.produits = this.produitService.listeProduits();
   }
-  
 
 }
