@@ -18,5 +18,12 @@ export class ProduitsComponent implements OnInit {
 
     this.produits = this.produitService.listeProduits();
   }
+  supprimerProduit(p: Produit)
+    {
+     // console.log(p);
+      let conf = confirm("Etes-vous sûr ?");
+      if (conf)
+        this.produitService.supprimerProduit(p);
+    } 
 
 }
